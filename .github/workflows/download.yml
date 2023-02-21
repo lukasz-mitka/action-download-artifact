@@ -65,9 +65,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: TEST 1
-      - name: TEST 2
         run: |
           echo ${{ github.sha }}
+      - name: TEST 2
         uses: actions/github-script@v6
         with:
           script: |
