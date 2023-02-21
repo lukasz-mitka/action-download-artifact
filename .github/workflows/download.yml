@@ -67,22 +67,22 @@ jobs:
       - name: TEST 1
         run: |
           echo ${{ github.sha }}
-      - name: TEST 2
-        uses: actions/github-script@v6
-        with:
-          script: |
-            console.log("Getting workflows")
-            const workflows = await github.rest.actions.listRepoWorkflows({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-            })
-            const upload = workflows.data.workflows.find(i => /upload/i.test(i.name))
-            const runs = await github.rest.actions.listWorkflowRuns({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: upload.id,
-            })
-            console.log(runs.data)
+      # - name: TEST 2
+      #   uses: actions/github-script@v6
+      #   with:
+      #     script: |
+      #       console.log("Getting workflows")
+      #       const workflows = await github.rest.actions.listRepoWorkflows({
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #       })
+      #       const upload = workflows.data.workflows.find(i => /upload/i.test(i.name))
+      #       const runs = await github.rest.actions.listWorkflowRuns({
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         workflow_id: upload.id,
+      #       })
+      #       console.log(runs.data)
       - name: Download
         uses: ./
         with:
